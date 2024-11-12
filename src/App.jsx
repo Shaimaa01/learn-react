@@ -7,6 +7,9 @@ import Student from "./Student.jsx";
 import UserGreeting from "./UserGreeting.jsx";
 import List from "./List.jsx";
 import ProfilePicture from "./ProfilePicture.jsx";
+import MyComponent from "./MyComponent.jsx";
+import Counter from "./Counter.jsx";
+import ColorPicker from "./ColorPicker.jsx";
 
 function App() {
   const fruits = [
@@ -43,6 +46,9 @@ function App() {
         <List items={vegetables} category="vegetables" />
       ) : null}
       <ProfilePicture/>
+      <MyComponent/>
+      <Counter/>
+      <ColorPicker/>
       <Footer />
     </>
   );
