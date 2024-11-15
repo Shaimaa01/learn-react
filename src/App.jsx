@@ -10,6 +10,14 @@ import ProfilePicture from "./ProfilePicture.jsx";
 import MyComponent from "./MyComponent.jsx";
 import Counter from "./Counter.jsx";
 import ColorPicker from "./ColorPicker.jsx";
+import Cars from "./cars.jsx";
+import ToDoList from "./To-Do-List-app/ToDoList.jsx";
+// eslint-disable-next-line no-unused-vars
+import React, { useRef, useEffect, useState } from "react";
+import UseEffect from "./UseEffect.jsx";
+import DigitalClock from "./DigitalClock.jsx";
+import ComponentA from "./ComponentA.jsx";
+import UseRef from "./UseRef.jsx";
 
 function App() {
   const fruits = [
@@ -28,6 +36,15 @@ function App() {
     { id: 10, name: "brocoli", calories: 50 },
   ];
 
+  const endOfPageRef = useRef(null);
+  // eslint-disable-next-line no-unused-vars
+  const [content, setContent] = useState([]);
+
+  useEffect(() => {
+    // Scrolls to the bottom when content updates
+    endOfPageRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [content]); // Adjust dependencies as needed
+
   return (
     <>
       <Header />
@@ -41,15 +58,22 @@ function App() {
       <Student name="Sandy" age={27} isStudent={true}></Student>
       <Student name="Lary"></Student>
       <UserGreeting isLoggedIn={true} username="Shaimaa"></UserGreeting>
-      {fruits.length > 0 && <List items={fruits} category="fruits" /> }
+      {fruits.length > 0 && <List items={fruits} category="fruits" />}
       {vegetables.length > 0 ? (
         <List items={vegetables} category="vegetables" />
       ) : null}
-      <ProfilePicture/>
-      <MyComponent/>
-      <Counter/>
-      <ColorPicker/>
+      <ProfilePicture />
+      <MyComponent />
+      <Counter />
+      <ColorPicker />
+      <Cars />
+      <ToDoList />
+      <UseEffect />
+      <DigitalClock />
+      <ComponentA />
+      <UseRef/>
       <Footer />
+      <div ref={endOfPageRef} />
     </>
   );
 }

@@ -5,7 +5,7 @@
  
 
 
-import imageUrl from "./assets/images/91362.jpg";
+import imageUrl from "./assets/images/bear.jpg";
 
 function ProfilePicture() {
 

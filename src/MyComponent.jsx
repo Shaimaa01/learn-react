@@ -22,6 +22,11 @@ function MyComponent() {
   const [comment, setComment] = useState("");
   const [payment, setPayment] = useState("");
   const [shipping, setShipping] = useState("");
+  const [car, setCar] = useState({
+    year: 2024,
+    make: "Ford",
+    modle: "Mustang",
+  });
 
   const updateName = () => {
     setName("shaimaa 😎");
@@ -53,6 +58,17 @@ function MyComponent() {
 
   function handleSippingChange(event) {
     setShipping(event.target.value);
+  }
+
+  // Car
+  function handleYearChange(event) {
+    setCar((c) => ({ ...c, year: event.target.value }));
+  }
+  function handleMakeChange(event) {
+    setCar((c) => ({ ...c, make: event.target.value }));
+  }
+  function handleModleChange(event) {
+    setCar((c) => ({ ...c, modle: event.target.value }));
   }
 
   return (
@@ -106,6 +122,18 @@ function MyComponent() {
         Delivery
       </label>
       <p>Shipping:{shipping}</p>
+
+      <div>
+        <p>
+          YOur favorite car is: {car.year} {car.make} {car.modle}
+        </p>
+        <input type="number" value={car.year} onChange={handleYearChange} />
+        <br />
+        <input type="text" value={car.make} onChange={handleMakeChange} />
+        <br />
+        <input type="text" value={car.modle} onChange={handleModleChange} />
+        <br />
+      </div>
     </div>
   );
 }
